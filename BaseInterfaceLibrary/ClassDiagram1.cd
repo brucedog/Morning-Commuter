@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Interface Name="BaseInterfaceLibrary.Factory.IObjectFactory" Collapsed="true">
+    <Position X="3" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factory\IObjectFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BaseInterfaceLibrary.Factory.IWeatherFactory" Collapsed="true">
+    <Position X="8.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAACAAAAAAAIAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Factory\IWeatherFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BaseInterfaceLibrary.Messenger.IMessenger" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAAI=</HashCode>
+      <FileName>Messenger\IMessenger.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BaseInterfaceLibrary.Model.IAddress" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAABA=</HashCode>
+      <FileName>Model\IAddress.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BaseInterfaceLibrary.Model.IGoogleWeather" Collapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\IGoogleWeather.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BaseInterfaceLibrary.Model.IWeather" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAACAAAAAAAQAAAACAAAAAAABAAA=</HashCode>
+      <FileName>Model\IWeather.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BaseInterfaceLibrary.Model.IWeatherAlert" Collapsed="true">
+    <Position X="6.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAEAAAAAQAAAAAAAAQAAAAQAIIAAAAAA=</HashCode>
+      <FileName>Model\IWeatherAlert.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BaseInterfaceLibrary.Model.IWeatherBug" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAgAAAAAGAAAAAAAAABQAAAAABgAAAEA=</HashCode>
+      <FileName>Model\IWeatherBug.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BaseInterfaceLibrary.Services.IRepositoryRegistry" Collapsed="true">
+    <Position X="4.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\IRepositoryRegistry.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BaseInterfaceLibrary.Services.IXmlHelper" Collapsed="true">
+    <Position X="4.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\IXmlHelper.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BaseInterfaceLibrary.ViewModel.IMainWindowViewModel" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\IMainWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BaseInterfaceLibrary.ViewModel.IWeatherViewModel" Collapsed="true">
+    <Position X="3" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAEAAAAAAAEAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\IWeatherViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

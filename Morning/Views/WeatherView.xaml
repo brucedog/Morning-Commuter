@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="View.Views.WeatherView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"       
+             xmlns:Views="clr-namespace:View.Views"
+             xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro" 
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance  SampleViewModelData:WeatherBaseViewModelSample, IsDesignTimeCreatable=True}"
+             d:DesignHeight="220" d:DesignWidth="505"
+             xmlns:local="clr-namespace:ViewModel.WpfHelpers;assembly=ViewModel"             
+             xmlns:SampleViewModelData="clr-namespace:SampleViewModelData;assembly=SampleViewModelData">
+    <Grid Grid.Row="2" Grid.Column="3" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="190"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="175"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+            <Viewbox Grid.Row="0" Grid.Column="0"  Height="80" Width="Auto" HorizontalAlignment="Right"  Name="CurrentDescription" VerticalAlignment="Top"  >
+                <TextBlock Text="{Binding CurrentWeatherSummary}" Height="80" Width="Auto" HorizontalAlignment="Right"  VerticalAlignment="Top" FontSize="48" FontWeight="ExtraBlack" TextWrapping="Wrap" />
+            </Viewbox>
+            <Label Grid.Row="0" Grid.Column="0" Content="{Binding CurrentTemperature}" Height="70" Width="250" HorizontalAlignment="Right"  Name="CurrentTemp" VerticalAlignment="Top" FontSize="48" FontWeight="ExtraBlack" HorizontalContentAlignment="Right" />
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <Image Grid.Row="0" Grid.Column="0" Name="WeatherImage" DataContext="{Binding WeatherImage}" Width="75" Height="80"/>
+            <Label Grid.Row="0" Grid.Column="1" Content="{Binding TemperatureUnitType}" Height="70" Width="75" HorizontalAlignment="Left"  Name="TempUnit" VerticalAlignment="Top" FontSize="48" FontWeight="ExtraBlack" />
+        </StackPanel>        
+            <Grid Grid.Row="0" Grid.Column="2 ">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="82"/>
+                <ColumnDefinition Width="90"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0" Height="auto" Name="WeatherDetailLables" Width="82" >
+                <Label Name="TodaysHighLabel" Padding="1" Content="Today's High:" />
+                <Label Name="TodaysLowLabel" Padding="1" Content="Today's Low:" />
+                <Label Name="FeelsLikeLabel" Padding="1" Content="Feels Like:" />
+                <Label Name="HumidityLabel" Padding="1" Content="Humidity:" />
+                <Label Name="RainTodayLabel" Padding="1" Content="Rain Today:" />
+            </StackPanel>
+            <StackPanel Grid.Row="0" Grid.Column="1" Height="auto" Name="WeatherDetailVables" Width="90">
+                <Label Name="TodaysHighValue" Padding="1" Content="{Binding HighTemperatureForToday}" />
+                <Label Name="TodaysLowValue" Padding="1" Content="{Binding LowTemperatureForToday}" />
+                <Label Name="FeelsLikeValue" Padding="1" Content="{Binding FeelsLike}" />
+                <Label Name="HumidityValue" Padding="1" Content="{Binding Humidity}" />
+                <Label Name="RainTodayValue" Padding="1" Content="{Binding RainToday}" />
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Bottom">
+            <!--TODO added forecast -->
+            <Button Content="Weather Details" cal:Message.Attach="ForecastWindow" IsEnabled="False" Visibility="Hidden"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="2" VerticalAlignment="Bottom">
+            <Button Content="Alerts" cal:Message.Attach="AlertWindow" Visibility="{Binding Path=HasWeatherAlerts,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}"/>
+        </StackPanel>
+        <Image Name="ProxyImage" Stretch="Fill" Margin="0,0,-5,0" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="/Images/PleaseWait.gif"
+                Visibility="{Binding Path=ProxyImageLoaded,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}"/>
+    </Grid>
+</UserControl>

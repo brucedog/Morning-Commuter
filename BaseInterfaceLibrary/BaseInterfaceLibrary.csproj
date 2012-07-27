@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9620E7C6-9362-45DE-8F30-CB21AF9173E3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BaseInterfaceLibrary</RootNamespace>
+    <AssemblyName>BaseInterfaceLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ninject">
+      <HintPath>..\3rd party Lib\Ninject\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Factory\IWeatherFactory.cs" />
+    <Compile Include="Messenger\IMessenger.cs" />
+    <Compile Include="Model\ISettings.cs" />
+    <Compile Include="Model\IBaseModel.cs" />
+    <Compile Include="Model\ICommute.cs" />
+    <Compile Include="Model\IWeather.cs" />
+    <Compile Include="Model\IModelRegistry.cs" />
+    <Compile Include="Model\IWeatherBase.cs" />
+    <Compile Include="Model\IWeatherAlert.cs" />
+    <Compile Include="Model\IWeatherBug.cs" />
+    <Compile Include="Model\IWeatherForecast.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Services\IGoogleMapService.cs" />
+    <Compile Include="Services\IGoogleWeatherService.cs" />
+    <Compile Include="Services\IRepositoryRegistry.cs" />
+    <Compile Include="Services\IWundergroundWeatherService.cs" />
+    <Compile Include="Services\IXmlHelper.cs" />
+    <Compile Include="ViewModel\IMainWindowViewModel.cs" />
+    <Compile Include="ViewModel\ISettingsViewModel.cs" />
+    <Compile Include="ViewModel\ITravelDirectionsViewModel.cs" />
+    <Compile Include="ViewModel\ITravelViewModel.cs" />
+    <Compile Include="ViewModel\IViewModelRegistry.cs" />
+    <Compile Include="ViewModel\IWeatherAlertViewModel.cs" />
+    <Compile Include="ViewModel\IWeatherDetailsViewModel.cs" />
+    <Compile Include="ViewModel\IWeatherViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
