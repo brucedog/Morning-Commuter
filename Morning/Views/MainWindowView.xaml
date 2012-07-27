@@ -54,7 +54,6 @@
         </Grid>
         <Grid Grid.Row="2">
             <Views:TravelView Width="Auto" DataContext="{Binding Travel}" Visibility="{Binding Path=ShowTravel,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}" />
-            <!--<Button Content="Daily Commute" cal:Message.Attach="DailyCommute"/>-->
         </Grid>
     </Grid>
 </Window>
