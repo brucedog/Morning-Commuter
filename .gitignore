@@ -16,3 +16,13 @@ TestResults
 /Services/obj
 /Morning.6.1.ReSharper.user
 /Morning.5.1.ReSharper.user
+/Services/obj
+/Services/bin
+/SampleViewModelData/bin
+/SampleViewModelData/obj
+/ServiceTests/bin
+/ServiceTests/obj
+/Morning/bin
+/Morning/obj
+/Model/bin
+/Model/obj
