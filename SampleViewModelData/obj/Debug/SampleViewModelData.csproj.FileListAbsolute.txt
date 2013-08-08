@@ -19,6 +19,6 @@ C:\Users\fosterb\Downloads\temp\Morning\Morning\SampleViewModelData\bin\Debug\Ba
 C:\Users\fosterb\Downloads\temp\Morning\Morning\SampleViewModelData\bin\Debug\Model.pdb
 C:\Users\fosterb\Downloads\temp\Morning\Morning\SampleViewModelData\bin\Debug\Ninject.pdb
 C:\Users\fosterb\Downloads\temp\Morning\Morning\SampleViewModelData\bin\Debug\Ninject.xml
-C:\Users\fosterb\Downloads\temp\Morning\Morning\SampleViewModelData\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\fosterb\Downloads\temp\Morning\Morning\SampleViewModelData\obj\Debug\SampleViewModelData.dll
 C:\Users\fosterb\Downloads\temp\Morning\Morning\SampleViewModelData\obj\Debug\SampleViewModelData.pdb
+C:\Users\fosterb\Downloads\temp\Morning\Morning\SampleViewModelData\obj\Debug\SampleViewModelData.csprojResolveAssemblyReference.cache

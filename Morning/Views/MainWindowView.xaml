@@ -7,53 +7,31 @@
         xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro" 
         xmlns:SampleViewModelData="clr-namespace:SampleViewModelData;assembly=SampleViewModelData" xmlns:local="clr-namespace:ViewModel.WpfHelpers;assembly=ViewModel" mc:Ignorable="d" 
         d:DataContext="{d:DesignInstance  SampleViewModelData:MainWindowViewModelSample, IsDesignTimeCreatable=True}"
-        Title="Morning" Height="450" Width="535" WindowStyle="None" MouseDown="MouseDownEvent">
-    <Grid Grid.Row="3" Grid.Column="1">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Grid.Column="7">
+        Title="Morning" 
+        Height="Auto"
+        Width="535"
+        WindowStyle="None" 
+        SizeToContent="WidthAndHeight"
+        MouseDown="MouseDownEvent">
+    <StackPanel Height="Auto">
+        <Grid Grid.Row="1" Grid.Column="3">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5"/>
                 <ColumnDefinition Width="35"/>
-                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="440"/>
                 <ColumnDefinition Width="35"/>
-                <ColumnDefinition Width="35"/>
-                <ColumnDefinition Width="35"/>
-                <ColumnDefinition Width="5"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="5"/>
                 <RowDefinition Height="35"/>
             </Grid.RowDefinitions>
-            <Button Name="SettingsBtn" Grid.Column="1" Grid.Row="1" cal:Message.Attach="SettingsCommand" Background="Transparent">
+            <Button Name="SettingsBtn" Grid.Column="0" Margin="2" Grid.Row="0" cal:Message.Attach="SettingsCommand" Background="Transparent">
                 <Image Name="SettingImage" Source="..\Images\settings.png"/>
             </Button>
-            <Label Grid.Column="2" Grid.Row="1" Content="Morning" FontWeight="ExtraBold" ForceCursor="False" Padding="15,5,5,5" />
-            <Button Name="CloseBtn" Grid.Column="5" Grid.Row="1" cal:Message.Attach="CloseCommand" Background="Transparent">
+            <Label Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Content="Morning" FontWeight="ExtraBold" ForceCursor="False" Padding="15,5,5,5" />
+            <Button Name="CloseBtn" Grid.Column="4" Margin="2" Grid.ColumnSpan="2"  Grid.Row="0" cal:Message.Attach="CloseCommand" Background="Transparent">
                 <Image Name="CloseImage" Source="..\Images\closeIcon.png"/>
             </Button>
-        </Grid>
-        <Grid Grid.Row="1" Grid.Column="3">
-            <!--weather view-->
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="5"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="5"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="5"/>
-            </Grid.RowDefinitions>
-            <Image Grid.Row="1" Grid.Column="1"  Visibility="{Binding Path=IsLoading,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}"
-                   Source="/View;component/Images/PleaseWait.gif" />
-            <Views:WeatherView Grid.Row="1" Grid.Column="1" Width="Auto" DataContext="{Binding Weather}" Visibility="{Binding Path=ShowWeather,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}" />
-        </Grid>
-        <Grid Grid.Row="2">
-            <Views:TravelView Width="Auto" DataContext="{Binding Travel}" Visibility="{Binding Path=ShowTravel,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}" />
-        </Grid>
-    </Grid>
+        </Grid>        
+        <Views:WeatherView DataContext="{Binding Weather}" Visibility="{Binding Path=ShowWeather,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}" />
+        <Views:TravelView DataContext="{Binding Travel}" Visibility="{Binding Path=ShowTravel,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}" />
+    </StackPanel>
 </Window>

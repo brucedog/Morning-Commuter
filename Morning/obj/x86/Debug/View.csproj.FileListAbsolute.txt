@@ -102,15 +102,12 @@ C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\bin\Debug\Ninject.pdb
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\bin\Debug\Ninject.xml
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\bin\Debug\Model.pdb
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\bin\Debug\Services.pdb
-C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\obj\x86\Debug\App.g.cs
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\obj\x86\Debug\View_MarkupCompile.cache
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\obj\x86\Debug\View_MarkupCompile.lref
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\obj\x86\Debug\View.g.resources
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\obj\x86\Debug\View.Properties.Resources.resources
-C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\obj\x86\Debug\GenerateResource.read.1.tlog
-C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\obj\x86\Debug\View.exe
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\obj\x86\Debug\View.pdb
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\obj\x86\Debug\Views\SettingsView.baml
@@ -142,3 +139,5 @@ C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\bin\Debug\GoogleMapsApi.
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\bin\Debug\Microsoft.CompilerServices.AsyncTargetingPack.Net4.xml
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\obj\x86\Debug\Views\TravelDirectionsView.baml
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\obj\x86\Debug\Views\TravelDirectionsView.g.cs
+C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\obj\x86\Debug\View.csprojResolveAssemblyReference.cache
+C:\Users\fosterb\Downloads\temp\Morning\Morning\Morning\obj\x86\Debug\View.csproj.GenerateResource.Cache

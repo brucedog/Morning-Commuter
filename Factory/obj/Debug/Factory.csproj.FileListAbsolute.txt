@@ -39,10 +39,10 @@ C:\Users\fosterb\Downloads\temp\Morning\Morning\Factory\bin\Debug\Model.pdb
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Factory\bin\Debug\Services.pdb
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Factory\bin\Debug\Ninject.pdb
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Factory\bin\Debug\Ninject.xml
-C:\Users\fosterb\Downloads\temp\Morning\Morning\Factory\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Factory\obj\Debug\Factory.dll
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Factory\obj\Debug\Factory.pdb
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Factory\bin\Debug\GoogleMapsApi.dll
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Factory\bin\Debug\Microsoft.CompilerServices.AsyncTargetingPack.Net4.dll
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Factory\bin\Debug\GoogleMapsApi.pdb
 C:\Users\fosterb\Downloads\temp\Morning\Morning\Factory\bin\Debug\Microsoft.CompilerServices.AsyncTargetingPack.Net4.xml
+C:\Users\fosterb\Downloads\temp\Morning\Morning\Factory\obj\Debug\Factory.csprojResolveAssemblyReference.cache

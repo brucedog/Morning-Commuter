@@ -119,11 +119,12 @@ namespace ViewModel.ViewModels
             };
 
             _worker.RunWorkerCompleted += (s, args) =>
-            {
-                IsLoading = false;
-                ShowWeather = true;
-                ShowTravel = true;
-            };
+                {
+                    Weather.ProxyImageLoaded = false;
+                    IsLoading = false;
+                    ShowWeather = true;
+                    ShowTravel = true;
+                };
             _worker.RunWorkerAsync("get data");
         }
     }

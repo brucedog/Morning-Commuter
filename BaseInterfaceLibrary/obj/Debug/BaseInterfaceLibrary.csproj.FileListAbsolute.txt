@@ -22,6 +22,6 @@ C:\Users\fosterb\Downloads\temp\Morning\Morning\BaseInterfaceLibrary\bin\Debug\B
 C:\Users\fosterb\Downloads\temp\Morning\Morning\BaseInterfaceLibrary\bin\Debug\Ninject.dll
 C:\Users\fosterb\Downloads\temp\Morning\Morning\BaseInterfaceLibrary\bin\Debug\Ninject.pdb
 C:\Users\fosterb\Downloads\temp\Morning\Morning\BaseInterfaceLibrary\bin\Debug\Ninject.xml
-C:\Users\fosterb\Downloads\temp\Morning\Morning\BaseInterfaceLibrary\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\fosterb\Downloads\temp\Morning\Morning\BaseInterfaceLibrary\obj\Debug\BaseInterfaceLibrary.dll
 C:\Users\fosterb\Downloads\temp\Morning\Morning\BaseInterfaceLibrary\obj\Debug\BaseInterfaceLibrary.pdb
+C:\Users\fosterb\Downloads\temp\Morning\Morning\BaseInterfaceLibrary\obj\Debug\BaseInterfaceLibrary.csprojResolveAssemblyReference.cache

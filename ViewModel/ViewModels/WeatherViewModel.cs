@@ -36,7 +36,7 @@ namespace ViewModel.ViewModels
         public bool ProxyImageLoaded
         {
             get { return _proxyImageLoaded; }
-            private set
+            set
             {
                 _proxyImageLoaded = value;
                 NotifyOfPropertyChange(() => ProxyImageLoaded);

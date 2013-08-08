@@ -10,7 +10,7 @@ namespace BaseInterfaceLibrary.ViewModel
 
         IWeatherBug Weather { get; set; }
 
-        bool ProxyImageLoaded { get; }
+        bool ProxyImageLoaded { get; set; }
 
         IWeather WundergroundWeather { get; set; }
         

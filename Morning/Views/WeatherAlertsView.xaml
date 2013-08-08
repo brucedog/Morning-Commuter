@@ -32,8 +32,8 @@
             <Label Content="{Binding ExpireTime}"/>
             <Label Content="{Binding TimeIssued}"/>
             <Label Content="{Binding Type}"/>
-            <TextBlock Text="{Binding Message}" TextWrapping="Wrap" SnapsToDevicePixels="False" Width="325" UseLayoutRounding="True" Height="75" IsManipulationEnabled="False" />
-            <Button Name="CloseWeather" Content="Close" cal:Message.Attach="CloseWeatherAlertWindow" />
+            <TextBlock Text="{Binding Message}" TextWrapping="Wrap" SnapsToDevicePixels="False" Width="Auto" UseLayoutRounding="True" Height="75" IsManipulationEnabled="False" Margin="5" />
+            <Button Name="CloseWeather" Content="Close" cal:Message.Attach="CloseWeatherAlertWindow" Margin="10" Padding="5" />
         </StackPanel>
     </Grid>
 </Window>

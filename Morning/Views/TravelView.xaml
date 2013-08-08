@@ -9,29 +9,29 @@
         xmlns:local="clr-namespace:ViewModel.WpfHelpers;assembly=ViewModel" 
         d:DataContext="{d:DesignInstance  SampleViewModelData:TravelViewModelSample, IsDesignTimeCreatable=True}"
         d:DesignHeight="170" d:DesignWidth="505"
-        Width="505"
+        Width="Auto"
+        Height="Auto"
+        MinHeight="100"
         >
-    <Grid Grid.Column="3">
+    <Grid Grid.Column="2" Height="Auto">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="330"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
+        <StackPanel Grid.Column="0" Height="Auto">
             <Label Content="Daily Commute" FontWeight="Bold" />
             <Label Content="{Binding TravelingBy}" />
             <Label Content="{Binding From}" />
             <Label Content="{Binding To}" />
+            <Button Content="Directions" cal:Message.Attach="ShowDirections" Padding="5" Margin="5"/>
             <Label Content="Warning" Foreground="Red" Visibility="{Binding Path=HasWarnings,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}"/>
-            <ListBox ItemsSource="{Binding Warnings}" Visibility="{Binding Path=HasWarnings,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}"/>
+            <ListBox ItemsSource="{Binding Warnings}" Visibility="{Binding Path=HasWarnings,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}" Padding="5" Margin="5"/>
         </StackPanel>
-        <StackPanel Grid.Column="1">
-            <Label Content="{Binding ExceptedArrivalTime}" />
+        <StackPanel Grid.Column="1" Height="Auto">
+            <Label Content="{Binding ExceptedArrivalTime}" HorizontalContentAlignment="Right" FontSize="12.5" />
             <Label Content="" />
             <Label Content="" />
-            <Label Content="{Binding CurrentTime}" HorizontalContentAlignment="Right" />
-        </StackPanel>
-        <StackPanel VerticalAlignment="Center">
-            <Button Content="Directions" cal:Message.Attach="ShowDirections"/>
+            <Label Content="{Binding CurrentTime}" HorizontalContentAlignment="Right" Margin="5" FontSize="20" />
         </StackPanel>
     </Grid>
 </UserControl>

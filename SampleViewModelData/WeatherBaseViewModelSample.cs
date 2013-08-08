@@ -23,7 +23,7 @@ namespace SampleViewModelData
             ProxyImageLoaded = false;
         }
 
-        public bool ProxyImageLoaded { get; private set; }
+        public bool ProxyImageLoaded { get; set; }
 
         public IWeather WundergroundWeather { get; set; }
         

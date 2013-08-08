@@ -4,3 +4,15 @@ obj
 _ReSharper.Morning
 # mstest test results
 TestResults
+/FactoryTest/obj
+/FactoryTest/bin
+/Model/obj
+/Model/bin
+/Morning/obj
+/Morning/bin
+/SampleViewModelData/obj
+/SampleViewModelData/bin
+/Services/bin
+/Services/obj
+/Morning.6.1.ReSharper.user
+/Morning.5.1.ReSharper.user
