@@ -23,7 +23,7 @@ namespace Services
             XmlDocument xmlConditions = new XmlDocument();
             IWeather weather = _kernel.Get<IWeather>();
 
-            xmlConditions.Load(string.Format("http://api.wunderground.com/api/09d01b49a241dc0d/conditions/q/{0}.xml",
+            xmlConditions.Load(string.Format("http://api.wunderground.com/api/{key}/conditions/q/{0}.xml",
                                         Settings.ZipCode));
 
             foreach (XmlNode node in xmlConditions)
