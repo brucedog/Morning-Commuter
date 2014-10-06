@@ -19,7 +19,5 @@ namespace Model.Models
         public string LowTemperatureForToday { get; set; }
         
         public string CurrentWeatherSummary { get; set; }
-
-        public ISettings Settings { get; set; }
     }
 }

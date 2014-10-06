@@ -14,7 +14,6 @@ namespace View
     {
         protected override void Configure()
         {
-            //InitializeCaliburn();
             InitializeNinject();
             AssemblySource.Instance.AddRange(SelectAssemblies());
             Kernel.Get<IEventAggregator>().Subscribe(this);

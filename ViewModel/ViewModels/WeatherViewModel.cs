@@ -43,40 +43,30 @@ namespace ViewModel.ViewModels
             }
         }
 
-        public IWeather WundergroundWeather
+        public IWeather Weather
         {
-            get { return _wundergroundWeather ?? (_wundergroundWeather = _kernel.Get<IWundergroundWeatherService>().GetWeather()); }
+            get { return _wundergroundWeather ?? (_weatherFactory.CreateCurrentWeather(Settings.ZipCode, IsEnglishUnits)); }
             set
             {
                 _wundergroundWeather = value;
-                NotifyOfPropertyChange(() => WundergroundWeather);
+                NotifyOfPropertyChange(() => Weather);
             }
             
         }
 
-        public IWeatherBug Weather
-        {
-            get { return _weatherBug ?? (_weatherBug = _weatherFactory.CreateWeatherBugDetailModel(Settings.ZipCode, true)); }
-            set
-            {
-                _weatherBug = value;
-                NotifyOfPropertyChange(() => Weather);
-            }
-        }
-
         public string RainToday
         {
-            get { return WundergroundWeather.PrecipToday; }
+            get { return Weather.PrecipToday; }
         }
         
         public string Humidity
         {
-            get { return WundergroundWeather.Humidity; }
+            get { return Weather.Humidity; }
         }
 
         public string FeelsLike
         {
-            get { return (IsEnglishUnits ? WundergroundWeather.FeelsLikeF : WundergroundWeather.FeelsLikeC) + TemperatureUnitType; }
+            get { return (IsEnglishUnits ? Weather.FeelsLikeF : Weather.FeelsLikeC) + TemperatureUnitType; }
         }
 
         public string LowTemperatureForToday
@@ -127,8 +117,7 @@ namespace ViewModel.ViewModels
 
         public void RefreshWeatherData()
         {
-            Weather = _weatherFactory.CreateWeatherBugDetailModel(Settings.ZipCode, true);
-            WundergroundWeather = _kernel.Get<IWundergroundWeatherService>().GetWeather();
+            Weather = _weatherFactory.CreateCurrentWeather(Settings.ZipCode, true);
             NotifyOfPropertyChange(() => HasWeatherAlerts);
             NotifyOfPropertyChange(() => HighTemperatureForToday);
             NotifyOfPropertyChange(() => LowTemperatureForToday);

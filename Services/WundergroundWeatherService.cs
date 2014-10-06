@@ -1,49 +1,37 @@
-using System.Xml;
-using BaseInterfaceLibrary.Model;
-using BaseInterfaceLibrary.Services;
-using Ninject;
+using System.Configuration;
 
 namespace Services
 {
-    public class WundergroundWeatherService : IWundergroundWeatherService
+    public class WundergroundWeatherService : WeatherServiceBase
     {
-        private readonly IKernel _kernel;
-        private ISettings _settings;
-        private const string CurrentXml = "current_observation/";
+        private string weatherAlertUrl = "http://api.wunderground.com/api/{0}/alerts/q/{1}.json";
+        private string weatherUrl = "http://api.wunderground.com/api/{0}/conditions/q/{1}.json";
+        private readonly string _apiKey;
 
-        public WundergroundWeatherService(IKernel kernel)
+        public WundergroundWeatherService()
         {
-            _kernel = kernel;
+            _apiKey = ConfigurationManager.AppSettings.Get("WeatherDotComApiKey");
         }
 
-        private ISettings Settings { get { return _settings ?? (_settings = _kernel.Get<IXmlHelper>().LoadSettingsFromXmlFile()); } }
-
-        public IWeather GetWeather()
+        public override string GetCurrentWeather(string zipCode)
         {
-            XmlDocument xmlConditions = new XmlDocument();
-            IWeather weather = _kernel.Get<IWeather>();
+            string result = MakeWebRequest(string.Format(weatherUrl, _apiKey, zipCode));
 
-            xmlConditions.Load(string.Format("http://api.wunderground.com/api/{key}/conditions/q/{0}.xml",
-                                        Settings.ZipCode));
+            return result;
+        }
 
-            foreach (XmlNode node in xmlConditions)
-            {
-                if (node.SelectSingleNode(CurrentXml + "temp_f")==null)
-                    return weather;
-                weather.CurrentTemperature = node.SelectSingleNode(CurrentXml + "temp_f").InnerText;
-                weather.CurrentTempC = node.SelectSingleNode(CurrentXml + "temp_c").InnerText;
-                weather.Humidity = node.SelectSingleNode(CurrentXml + "relative_humidity").InnerText;
-                weather.Condition = node.SelectSingleNode(CurrentXml + "weather").InnerText;
-                weather.FeelsLikeF = node.SelectSingleNode(CurrentXml + "feelslike_f").InnerText;
-                weather.FeelsLikeC = node.SelectSingleNode(CurrentXml + "feelslike_c").InnerText;
-                weather.HeatIndexC = node.SelectSingleNode(CurrentXml + "heat_index_c").InnerText;
-                weather.HeatIndexF = node.SelectSingleNode(CurrentXml + "heat_index_f").InnerText;
-                weather.WindChillF = node.SelectSingleNode(CurrentXml + "windchill_f").InnerText;
-                weather.WindChillC = node.SelectSingleNode(CurrentXml + "windchill_c").InnerText;
-                weather.PrecipToday = node.SelectSingleNode(CurrentXml + "precip_today_in").InnerText;                
-            }
+        public override string GetForecastByUsZipCode(string zipCode)
+        {
+            string result = MakeWebRequest(string.Format(weatherUrl, _apiKey, zipCode));
 
-            return weather;
+            return result;
+        }
+
+        public override string GetWeatherAlerts(string zipCode)
+        {
+            string result = MakeWebRequest(string.Format(weatherAlertUrl, _apiKey, zipCode));
+
+            return result;
         }
     }
 }

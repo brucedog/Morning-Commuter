@@ -1,4 +1,6 @@
-﻿namespace BaseInterfaceLibrary.Model
+﻿using System.Collections.Generic;
+
+namespace BaseInterfaceLibrary.Model
 {
     public interface IWeather : IWeatherBase
     {
@@ -10,16 +12,20 @@
         
         string Condition { get; set; }
 
-        string CurrentTempC { get; set; }
-
         string HeatIndexF { get; set; }
 
         string HeatIndexC { get; set; }
 
-        string WindChillF { get; set; }
-
-        string WindChillC { get; set; }
-
         string PrecipToday { get; set; }
+
+        string Pressure { get; set; }
+
+        string Wind { get; set; }
+
+        string WindDirection { get; set; }
+
+        string UV { get; set; }
+
+        List<IWeatherAlert> WeatherAlerts { get; set; }
     }
 }

@@ -65,7 +65,7 @@
     <Compile Include="Services\IGoogleMapService.cs" />
     <Compile Include="Services\IGoogleWeatherService.cs" />
     <Compile Include="Services\IRepositoryRegistry.cs" />
-    <Compile Include="Services\IWundergroundWeatherService.cs" />
+    <Compile Include="Services\IWeatherService.cs" />
     <Compile Include="Services\IXmlHelper.cs" />
     <Compile Include="ViewModel\IMainWindowViewModel.cs" />
     <Compile Include="ViewModel\ISettingsViewModel.cs" />

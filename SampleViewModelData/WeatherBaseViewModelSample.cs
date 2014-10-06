@@ -9,40 +9,28 @@ namespace SampleViewModelData
     {
         public WeatherBaseViewModelSample()
         {
-            Weather = new WeatherBugWeather("73", "Sunny")
-                           {
-                               RainToday = "YES",
-                               RainRate = ".02",
-                               WindSpeed = "100MPH",
-                               Pressure = "18PSI",
-                               Humidity = "30%",
-                               FeelsLike = "64",
-                               SunSet = DateTime.Now.AddHours(12).ToShortTimeString(),
-                               SunRise = DateTime.Now.ToShortTimeString()
-                           };
+            Weather = new Weather();
             ProxyImageLoaded = false;
         }
 
         public bool ProxyImageLoaded { get; set; }
 
-        public IWeather WundergroundWeather { get; set; }
+        public IWeather Weather { get; set; }
         
         public bool HasWeatherAlerts { get { return true; } }
 
         public bool IsEnglishUnits { get; set; }
-
-        public IWeatherBug Weather { get; set; }
         
         public void RefreshWeatherData(){}
 
-        public string RainToday { get { return Weather.RainToday; } }
+        public string RainToday { get { return ""; } }
 
         public string Humidity
         {
             get { return Weather.Humidity; }
         }
 
-        public string FeelsLike { get { return Weather.FeelsLike; } }
+        public string FeelsLike { get { return ""; } }
 
         public string LowTemperatureForToday { get { return Weather.LowTemperatureForToday; } }
 

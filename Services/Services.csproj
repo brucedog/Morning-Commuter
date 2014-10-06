@@ -39,11 +39,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\3rd party Lib\GMaps\Microsoft.CompilerServices.AsyncTargetingPack.Net4.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject, Version=2.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\3rd party Lib\Ninject\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.EnterpriseServices" />
@@ -59,7 +63,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GoogleMapService.cs" />
-    <Compile Include="GoogleWeatherService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -67,16 +70,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Helper\XmlHelper.cs" />
+    <Compile Include="WeatherServiceBase.cs" />
     <Compile Include="Web References\WeatherBugWebService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="WorldWeatherOnlineService.cs" />
     <Compile Include="WundergroundWeatherService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

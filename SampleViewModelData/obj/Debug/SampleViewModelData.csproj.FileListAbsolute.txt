@@ -22,3 +22,15 @@ C:\Users\fosterb\Downloads\temp\Morning\Morning\SampleViewModelData\bin\Debug\Ni
 C:\Users\fosterb\Downloads\temp\Morning\Morning\SampleViewModelData\obj\Debug\SampleViewModelData.dll
 C:\Users\fosterb\Downloads\temp\Morning\Morning\SampleViewModelData\obj\Debug\SampleViewModelData.pdb
 C:\Users\fosterb\Downloads\temp\Morning\Morning\SampleViewModelData\obj\Debug\SampleViewModelData.csprojResolveAssemblyReference.cache
+C:\Users\bryce.foster\Desktop\GitHub\Morning-Commuter\SampleViewModelData\bin\Debug\SampleViewModelData.dll
+C:\Users\bryce.foster\Desktop\GitHub\Morning-Commuter\SampleViewModelData\bin\Debug\SampleViewModelData.pdb
+C:\Users\bryce.foster\Desktop\GitHub\Morning-Commuter\SampleViewModelData\bin\Debug\BaseInterfaceLibrary.dll
+C:\Users\bryce.foster\Desktop\GitHub\Morning-Commuter\SampleViewModelData\bin\Debug\Model.dll
+C:\Users\bryce.foster\Desktop\GitHub\Morning-Commuter\SampleViewModelData\bin\Debug\Ninject.dll
+C:\Users\bryce.foster\Desktop\GitHub\Morning-Commuter\SampleViewModelData\bin\Debug\BaseInterfaceLibrary.pdb
+C:\Users\bryce.foster\Desktop\GitHub\Morning-Commuter\SampleViewModelData\bin\Debug\Model.pdb
+C:\Users\bryce.foster\Desktop\GitHub\Morning-Commuter\SampleViewModelData\bin\Debug\Ninject.pdb
+C:\Users\bryce.foster\Desktop\GitHub\Morning-Commuter\SampleViewModelData\bin\Debug\Ninject.xml
+C:\Users\bryce.foster\Desktop\GitHub\Morning-Commuter\SampleViewModelData\obj\Debug\SampleViewModelData.csprojResolveAssemblyReference.cache
+C:\Users\bryce.foster\Desktop\GitHub\Morning-Commuter\SampleViewModelData\obj\Debug\SampleViewModelData.dll
+C:\Users\bryce.foster\Desktop\GitHub\Morning-Commuter\SampleViewModelData\obj\Debug\SampleViewModelData.pdb

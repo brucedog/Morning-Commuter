@@ -16,8 +16,8 @@ namespace ServiceTests
             ISettings settings = kernel.Get<ISettings>();
             settings.ZipCode = "15217";
 
-            WundergroundWeatherService sut = new WundergroundWeatherService(kernel);
-            Assert.IsNotNull(sut.GetWeather());
+            WundergroundWeatherService sut = new WundergroundWeatherService();
+            Assert.IsNotNull(sut.GetCurrentWeather(settings.ZipCode));
         }
     }
 }

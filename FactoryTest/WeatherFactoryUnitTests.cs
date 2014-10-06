@@ -3,25 +3,37 @@ using BaseInterfaceLibrary.Factory;
 using BaseInterfaceLibrary.Model;
 using Factory;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Ninject;
 
 namespace FactoryTest
 {
     [TestClass]
     public class WeatherFactoryUnitTests
     {
-        [TestMethod]
-        public void CreateDetailedWeatherBugModel()
-        {
-            IWeatherFactory weatherFactory = new WeatherFactory();
-            IWeatherBug test =  weatherFactory.CreateWeatherBugDetailModel("15217", true);
+        private StandardKernel _kernel;
 
-            Assert.IsNotNull(test);
+        [TestInitialize]
+        public void Setup()
+        {
+            _kernel = new StandardKernel();
+            _kernel.Load(new Registry.Registry());
+            ISettings settings = _kernel.Get<ISettings>();
+            settings.ZipCode = "15217";
+        }
+
+        [TestMethod]
+        public void CreateWeather()
+        {
+            IWeatherFactory weatherFactory = new WeatherFactory(_kernel);
+            IWeather alerts = weatherFactory.CreateCurrentWeather("15217", true);
+
+            Assert.IsNotNull(alerts);
         }
 
         [TestMethod]
         public void CreateWeatherAlerts()
         {
-            IWeatherFactory weatherFactory = new WeatherFactory();
+            IWeatherFactory weatherFactory = new WeatherFactory(_kernel);
             List<IWeatherAlert> alerts = weatherFactory.CreateWeatherAlerts("15217");
 
             Assert.IsNotNull(alerts);
@@ -30,7 +42,7 @@ namespace FactoryTest
         [TestMethod]
         public  void CreateWeatherForecastList()
         {
-            IWeatherFactory weatherFactory = new WeatherFactory();
+            IWeatherFactory weatherFactory = new WeatherFactory(_kernel);
             List<IWeatherForecast> results = weatherFactory.CreateWeatherForecastList("15217", true);
 
             Assert.IsTrue(results.Count > 0);

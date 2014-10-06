@@ -1,4 +1,5 @@
-﻿using BaseInterfaceLibrary.Model;
+﻿using System.Collections.Generic;
+using BaseInterfaceLibrary.Model;
 
 namespace Model.Models
 {
@@ -32,5 +33,15 @@ namespace Model.Models
         public string WindChillC { get; set; }
         
         public string PrecipToday { get; set; }
+        
+        public string Pressure { get; set; }
+        
+        public string Wind { get; set; }
+        
+        public string WindDirection { get; set; }
+        
+        public string UV { get; set; }
+
+        public List<IWeatherAlert> WeatherAlerts { get; set; }
     }
 }

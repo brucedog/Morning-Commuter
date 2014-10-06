@@ -6,18 +6,21 @@ using Services;
 namespace ServiceTests
 {
     [TestClass]
-    public class GoogleWeatherServiceUnitTests
+    public class WorldWeatherOnlineServiceUnitTests
     {
         [TestMethod]
-        public void GoogleWeatherServiceGetsCurrentWeatherConditions()
+        public void TestMethod1()
         {
             IKernel kernel = new StandardKernel();
             kernel.Load(new Registry.Registry());
             ISettings settings = kernel.Get<ISettings>();
             settings.ZipCode = "15217";
 
-            GoogleWeatherService sut = new GoogleWeatherService(kernel);
-            Assert.IsNotNull(sut.GetWeather());
+            WorldWeatherOnlineService sut = new WorldWeatherOnlineService();
+
+            var result = sut.GetCurrentWeather(settings.ZipCode);
+
+            Assert.IsNotNull(result);
         }
     }
 }

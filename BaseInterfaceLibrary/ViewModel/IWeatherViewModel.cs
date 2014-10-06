@@ -8,11 +8,9 @@ namespace BaseInterfaceLibrary.ViewModel
 
         bool IsEnglishUnits { get; set; }
 
-        IWeatherBug Weather { get; set; }
-
         bool ProxyImageLoaded { get; set; }
 
-        IWeather WundergroundWeather { get; set; }
+        IWeather Weather { get; set; }
         
         void RefreshWeatherData();
 

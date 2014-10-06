@@ -21,7 +21,7 @@ namespace Registry
             Bind<IXmlHelper>().To<XmlHelper>().InSingletonScope();
             Bind<IWeatherFactory>().To<WeatherFactory>().InSingletonScope();
             Bind<IGoogleMapService>().To<GoogleMapService>().InSingletonScope();
-            Bind<IWundergroundWeatherService>().To<WundergroundWeatherService>().InSingletonScope();
+            Bind<IWeatherService>().To<WundergroundWeatherService>().InSingletonScope();
             // view models
             Bind<IMainWindowViewModel>().To<MainWindowViewModel>().InSingletonScope();
             Bind<ITravelViewModel>().To<TravelViewModel>().InSingletonScope();
