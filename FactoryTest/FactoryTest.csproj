@@ -66,6 +66,7 @@
   <ItemGroup>
     <None Include="..\Morning\app.config">
       <Link>app.config</Link>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

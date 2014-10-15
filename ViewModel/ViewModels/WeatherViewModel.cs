@@ -19,14 +19,13 @@ namespace ViewModel.ViewModels
         private readonly IKernel _kernel;
         private readonly IWindowManager _windowManger;
 
-        public WeatherViewModel(IKernel kernel, ISettings model,
+        public WeatherViewModel(IKernel kernel,
             IWindowManager windowManager)
         {
-            Settings = model;
             _kernel = kernel;
             _windowManger = windowManager;
             _weatherFactory = _kernel.Get<IWeatherFactory>();
-            IsEnglishUnits = kernel.Get<IXmlHelper>().LoadSettingsFromXmlFile().UseEnglishUnits;
+            Settings = kernel.Get<IXmlHelper>().LoadSettingsFromXmlFile();
             _refreshWeatherData = new Timer { Interval = 1500000, Enabled = true };
             _refreshWeatherData.Elapsed += RefreshWeatherData;
         }
@@ -45,13 +44,20 @@ namespace ViewModel.ViewModels
 
         public IWeather Weather
         {
-            get { return _wundergroundWeather ?? (_weatherFactory.CreateCurrentWeather(Settings.ZipCode, IsEnglishUnits)); }
+            get { return _wundergroundWeather ?? (Weather = _weatherFactory.CreateCurrentWeather(Settings.ZipCode, IsEnglishUnits)); }
             set
             {
                 _wundergroundWeather = value;
                 NotifyOfPropertyChange(() => Weather);
+                NotifyOfPropertyChange(() => HasWeatherAlerts);
+                NotifyOfPropertyChange(() => HighTemperatureForToday);
+                NotifyOfPropertyChange(() => LowTemperatureForToday);
+                NotifyOfPropertyChange(() => FeelsLike);
+                NotifyOfPropertyChange(() => Humidity);
+                NotifyOfPropertyChange(() => RainToday);
+                NotifyOfPropertyChange(() => CurrentWeatherSummary);
+                NotifyOfPropertyChange(() => CurrentTemperature);
             }
-            
         }
 
         public string RainToday
@@ -124,6 +130,8 @@ namespace ViewModel.ViewModels
             NotifyOfPropertyChange(() => FeelsLike);
             NotifyOfPropertyChange(() => Humidity);
             NotifyOfPropertyChange(() => RainToday);
+            NotifyOfPropertyChange(() => CurrentWeatherSummary);
+            NotifyOfPropertyChange(() => CurrentTemperature);
         }
 
         private void RefreshWeatherData(object source, ElapsedEventArgs e)

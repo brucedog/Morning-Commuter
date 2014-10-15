@@ -50,9 +50,19 @@
     <Compile Include="Models\WeatherAlert.cs" />
     <Compile Include="Models\WeatherBugWeather.cs" />
     <Compile Include="Models\WeatherForecast.cs" />
+    <Compile Include="Models\Wunderground\CurrentObservation.cs" />
+    <Compile Include="Models\Wunderground\DisplayLocation.cs" />
+    <Compile Include="Models\Wunderground\Estimated.cs" />
+    <Compile Include="Models\Wunderground\Features.cs" />
+    <Compile Include="Models\Wunderground\Image.cs" />
+    <Compile Include="Models\Wunderground\ObservationLocation.cs" />
+    <Compile Include="Models\Wunderground\Response.cs" />
+    <Compile Include="Models\Wunderground\RootObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Models\Wunderground\ReadMe.txt" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BaseInterfaceLibrary\BaseInterfaceLibrary.csproj">
       <Project>{9620E7C6-9362-45DE-8F30-CB21AF9173E3}</Project>

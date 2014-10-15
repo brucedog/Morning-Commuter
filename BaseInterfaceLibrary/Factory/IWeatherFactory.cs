@@ -9,6 +9,6 @@ namespace BaseInterfaceLibrary.Factory
        
         List<IWeatherForecast> CreateWeatherForecastList(string zipCode, bool isEnglishUnit);
         
-        List<IWeatherAlert> CreateWeatherAlerts(string zipcode);
+        List<IWeatherAlert> CreateWeatherAlerts(string zipCode);
     }
 }

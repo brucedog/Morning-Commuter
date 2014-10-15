@@ -4,6 +4,8 @@ using BaseInterfaceLibrary.Factory;
 using BaseInterfaceLibrary.Model;
 using BaseInterfaceLibrary.Services;
 using Model.Models;
+using Model.Models.Wunderground;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Ninject;
 
@@ -22,6 +24,9 @@ namespace Factory
 
         public IWeather CreateCurrentWeather(string zipCode, bool isEnglishUnit)
         {
+            if (string.IsNullOrWhiteSpace(zipCode))
+                return new Weather {WeatherAlerts = new List<IWeatherAlert>()};
+
             var results = _worldWeatherOnlineService.GetCurrentWeather(zipCode);
 
             return JsonToWeather(results); 
@@ -29,14 +34,20 @@ namespace Factory
 
         public List<IWeatherForecast> CreateWeatherForecastList(string zipCode, bool isEnglishUnit)
         {
+            if (string.IsNullOrWhiteSpace(zipCode))
+                return new List<IWeatherForecast>();
+
             var results = _worldWeatherOnlineService.GetForecastByUsZipCode(zipCode);
 
             return JsonToWeatherForecast(results);
         }
 
-        public List<IWeatherAlert> CreateWeatherAlerts(string zipcode)
+        public List<IWeatherAlert> CreateWeatherAlerts(string zipCode)
         {
-            var weatherAlerts = _worldWeatherOnlineService.GetWeatherAlerts(zipcode);
+            if (string.IsNullOrWhiteSpace(zipCode))
+                return new List<IWeatherAlert>();
+
+            var weatherAlerts = _worldWeatherOnlineService.GetWeatherAlerts(zipCode);
 
             return JsonToWeatherAlert(weatherAlerts);
         }
@@ -72,21 +83,24 @@ namespace Factory
             if (string.IsNullOrWhiteSpace(result))
                 return weather;
 
-            JObject jsonObject = JObject.Parse(result);
+            var jsonObject = JsonConvert.DeserializeObject<RootObject>(result);
 
-            weather.CurrentWeatherSummary = (string)jsonObject["current_observation"]["weather"];
-            weather.FeelsLikeF = (string)jsonObject["current_observation"]["feelslike_f"];
-            weather.FeelsLikeC = (string)jsonObject["current_observation"]["feelslike_c"];
-            weather.Humidity = (string)jsonObject["current_observation"]["humidity"];
-            weather.PrecipToday = (string)jsonObject["current_observation"]["precip_today_in"];
-            weather.CurrentTemperature = (string)jsonObject["current_observation"]["temp_f"];
+            if (jsonObject.current_observation == null)
+                return weather;
+
+            weather.CurrentWeatherSummary = jsonObject.current_observation.weather;
+            weather.FeelsLikeF = jsonObject.current_observation.feelslike_f;
+            weather.FeelsLikeC = jsonObject.current_observation.feelslike_c;            
+            weather.Humidity = jsonObject.current_observation.relative_humidity;
+            weather.PrecipToday = jsonObject.current_observation.precip_today_in;
+            weather.CurrentTemperature = jsonObject.current_observation.temp_f.ToString();
             weather.WeatherAlerts = new List<IWeatherAlert>();
-            weather.Pressure = (string)jsonObject["current_observation"]["pressure_in"];
-            weather.Wind = (string)jsonObject["current_observation"]["wind_mph"];
-            weather.WindDirection = (string)jsonObject["current_observation"]["wind_dir"];
-            weather.UV = (string)jsonObject["current_observation"]["UV"];
-            weather.HeatIndexC = (string)jsonObject["current_observation"]["heat_index_c"];
-            weather.HeatIndexF = (string)jsonObject["current_observation"]["heat_index_f"];
+            weather.Pressure = jsonObject.current_observation.pressure_in;
+            weather.Wind = jsonObject.current_observation.wind_mph.ToString();
+            weather.WindDirection = jsonObject.current_observation.wind_dir;
+            weather.UV = jsonObject.current_observation.UV;
+            weather.HeatIndexC = jsonObject.current_observation.heat_index_c.ToString();
+            weather.HeatIndexF = jsonObject.current_observation.heat_index_f.ToString();
 
             return weather;
         }
