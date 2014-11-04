@@ -39,6 +39,7 @@ namespace FactoryTest
             Assert.IsNotNull(alerts);
         }
 
+        [Ignore]
         [TestMethod]
         public  void CreateWeatherForecastList()
         {

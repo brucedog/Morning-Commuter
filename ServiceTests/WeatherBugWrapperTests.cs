@@ -6,6 +6,7 @@ namespace ServiceTests
     [TestClass]
     public class WeatherBugWrapperTests
     {
+        [Ignore]
         [TestMethod]
         public void TestMethod1()
         {
