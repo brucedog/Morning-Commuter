@@ -4,9 +4,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         mc:Ignorable="d" 
-        xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro" 
         xmlns:SampleViewModelData="clr-namespace:SampleViewModelData;assembly=SampleViewModelData"
-        xmlns:local="clr-namespace:ViewModel.WpfHelpers;assembly=ViewModel" 
+        xmlns:local="clr-namespace:ViewModel.WpfHelpers;assembly=ViewModel"
+        xmlns:micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform"
         d:DataContext="{d:DesignInstance  SampleViewModelData:TravelViewModelSample, IsDesignTimeCreatable=True}"
         d:DesignHeight="170" d:DesignWidth="505"
         Width="Auto"
@@ -23,7 +23,7 @@
             <Label Content="{Binding TravelingBy}" />
             <Label Content="{Binding From}" />
             <Label Content="{Binding To}" />
-            <Button Content="Directions" cal:Message.Attach="ShowDirections" Padding="5" Margin="5"/>
+            <Button Content="Directions" micro:Message.Attach="ShowDirections" Padding="5" Margin="5"/>
             <Label Content="Warning" Foreground="Red" Visibility="{Binding Path=HasWarnings,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}"/>
             <ListBox ItemsSource="{Binding Warnings}" Visibility="{Binding Path=HasWarnings,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}" Padding="5" Margin="5"/>
         </StackPanel>

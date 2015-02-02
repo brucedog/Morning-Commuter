@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Windows;
 using BaseInterfaceLibrary.ViewModel;
@@ -10,8 +11,13 @@ using ViewModel.ViewModels;
 
 namespace View
 {
-    public class MorningBootStrapper : Bootstrapper<IMainWindowViewModel>
+    public class MorningBootStrapper : BootstrapperBase
     {
+        public MorningBootStrapper()
+        {
+            Initialize();
+        }
+
         protected override void Configure()
         {
             InitializeNinject();
@@ -21,12 +27,20 @@ namespace View
 
         protected override IEnumerable<Assembly> SelectAssemblies()
         {
-            return new[]
+            var baseAssemblies = new List<Assembly>(base.SelectAssemblies());
+            var thisAssembly = Assembly.GetAssembly(typeof(MorningBootStrapper));
+            
+            if (!baseAssemblies.Contains(thisAssembly))
             {
-                Assembly.GetExecutingAssembly(),
-                typeof(MainWindowViewModel).Assembly,
-                typeof(MainWindowView).Assembly
-            };
+                baseAssemblies.Add(thisAssembly);
+            }
+
+            foreach (var assembly in baseAssemblies.ToList().Where(newAssembly => AssemblySource.Instance.Contains(newAssembly)))
+            {
+                baseAssemblies.Remove(assembly);
+            }
+
+            return baseAssemblies;
         }
 
         protected override void OnStartup(object sender, StartupEventArgs e)
@@ -41,6 +55,8 @@ namespace View
             ViewModelLocator.ConfigureTypeMappings(config);
             
             base.OnStartup(sender, e);
+
+            DisplayRootViewFor<IMainWindowViewModel>();
         }
         
         /// <summary>
@@ -65,16 +81,7 @@ namespace View
             Kernel.Load(new Registry.Registry());
             Kernel.Bind<IWindowManager>().To<WindowManager>().InSingletonScope();
             Kernel.Bind<IEventAggregator>().To<EventAggregator>().InSingletonScope();
-        }
-
-        /// <summary>
-        /// Initializes Caliburn.Micro settings.
-        /// </summary>
-        //private void InitializeCaliburn()
-        //{
-        //    //Disable convention-based property bindings.
-        //    ViewModelBinder.BindProperties = (e, t) => { return null; };
-        //}
+        }        
 
         private IKernel Kernel { get; set; }
     }

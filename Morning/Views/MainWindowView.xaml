@@ -4,8 +4,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"    
         xmlns:Views="clr-namespace:View.Views"
-        xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro" 
-        xmlns:SampleViewModelData="clr-namespace:SampleViewModelData;assembly=SampleViewModelData" xmlns:local="clr-namespace:ViewModel.WpfHelpers;assembly=ViewModel" mc:Ignorable="d" 
+        xmlns:SampleViewModelData="clr-namespace:SampleViewModelData;assembly=SampleViewModelData" xmlns:local="clr-namespace:ViewModel.WpfHelpers;assembly=ViewModel"
+        xmlns:micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform" mc:Ignorable="d" 
         d:DataContext="{d:DesignInstance  SampleViewModelData:MainWindowViewModelSample, IsDesignTimeCreatable=True}"
         Title="Morning" 
         Height="Auto"
@@ -23,11 +23,11 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="35"/>
             </Grid.RowDefinitions>
-            <Button Name="SettingsBtn" Grid.Column="0" Margin="2" Grid.Row="0" cal:Message.Attach="SettingsCommand" Background="Transparent">
+            <Button Name="SettingsBtn" Grid.Column="0" Margin="2" Grid.Row="0" micro:Message.Attach="SettingsCommand" Background="Transparent">
                 <Image Name="SettingImage" Source="..\Images\settings.png"/>
             </Button>
             <Label Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Content="Morning" FontWeight="ExtraBold" ForceCursor="False" Padding="15,5,5,5" />
-            <Button Name="CloseBtn" Grid.Column="4" Margin="2" Grid.ColumnSpan="2"  Grid.Row="0" cal:Message.Attach="CloseCommand" Background="Transparent">
+            <Button Name="CloseBtn" Grid.Column="4" Margin="2" Grid.ColumnSpan="2"  Grid.Row="0" micro:Message.Attach="CloseCommand" Background="Transparent">
                 <Image Name="CloseImage" Source="..\Images\closeIcon.png"/>
             </Button>
         </Grid>        

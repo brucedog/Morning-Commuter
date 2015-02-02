@@ -3,14 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"       
-             xmlns:Views="clr-namespace:View.Views"
-             xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro" 
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance  SampleViewModelData:WeatherBaseViewModelSample, IsDesignTimeCreatable=True}"
              d:DesignHeight="220" d:DesignWidth="505"
              MaxHeight="250"
              xmlns:local="clr-namespace:ViewModel.WpfHelpers;assembly=ViewModel"             
-             xmlns:SampleViewModelData="clr-namespace:SampleViewModelData;assembly=SampleViewModelData">
+             xmlns:SampleViewModelData="clr-namespace:SampleViewModelData;assembly=SampleViewModelData"
+             xmlns:micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform">
     <Grid Grid.Row="2" Grid.Column="3" >
         <Grid.RowDefinitions>
             <RowDefinition Height="190"/>
@@ -53,10 +52,10 @@
         </Grid>
         <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom">
             <!--TODO added forecast -->
-            <Button Margin="5" Content="Weather Details" cal:Message.Attach="ForecastWindow" IsEnabled="False" Visibility="Hidden"/>
+            <Button Margin="5" Content="Weather Details" micro:Message.Attach="ForecastWindow" IsEnabled="False" Visibility="Hidden"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom">
-            <Button Margin="5" Content="Alerts" cal:Message.Attach="AlertWindow" Visibility="{Binding Path=HasWeatherAlerts,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}"/>
+            <Button Margin="5" Content="Alerts" micro:Message.Attach="AlertWindow" Visibility="{Binding Path=HasWeatherAlerts,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}"/>
         </StackPanel>
         <Image Name="ProxyImage" Stretch="Fill" Margin="0,0,-5,0" Grid.ColumnSpan="3" Grid.RowSpan="2" Source="/Images/PleaseWait.gif"
                 Visibility="{Binding Path=ProxyImageLoaded,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}"/>

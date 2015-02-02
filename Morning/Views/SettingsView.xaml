@@ -9,8 +9,8 @@
             Width="450"
             xmlns:SampleViewModelData="clr-namespace:SampleViewModelData;assembly=SampleViewModelData"
             d:DataContext="{d:DesignInstance  SampleViewModelData:SettingsViewModelSample, IsDesignTimeCreatable=True}"
-            xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro" 
-            d:DesignHeight="300" d:DesignWidth="450">
+        xmlns:micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform"
+        d:DesignHeight="300" d:DesignWidth="450">
     <Grid>
         <Border Background="#90000000" Visibility="{Binding Visibility}">
             <Border BorderBrush="Black" BorderThickness="1" Background="White" 
@@ -46,7 +46,7 @@
                     </StackPanel>
                     <StackPanel Grid.Column="1" Grid.Row="1">
                         <Label Content="" />
-                        <Button cal:Message.Attach="CloseSettingsWindow" Content="Close and Save" />
+                        <Button micro:Message.Attach="CloseSettingsWindow" Content="Close and Save" />
                     </StackPanel>
                 </Grid>
             </Border>

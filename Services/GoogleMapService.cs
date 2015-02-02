@@ -29,7 +29,10 @@ namespace Services
                 || Settings.Commute == null
                 || string.IsNullOrWhiteSpace(Settings.Commute.To)
                 || string.IsNullOrWhiteSpace(Settings.Commute.From))
+            {
+                commute.Warnings = new string[0];
                 return commute;
+            }
             
             DirectionsResponse directions = GoogleMaps.Directions.Query(new DirectionsRequest
             {
@@ -43,7 +46,8 @@ namespace Services
                 TimeSpan shortestTime = TimeSpan.MaxValue;
                 foreach (Route route in directions.Routes)
                 {
-                    var tripTime = route.TripTime();
+                    // TODO need to correct
+                    var tripTime = route.Legs.First().Duration.Value;
                     if (shortestTime > tripTime)
                     {
                         shortestTime = tripTime;
@@ -82,7 +86,8 @@ namespace Services
                 Route shortestRoute = new Route();
                 foreach (Route route in directions.Routes)
                 {
-                    var tripTime = route.TripTime();
+                    // TODO need to correct
+                    var tripTime = route.Legs.First().Duration.Value;
                     if (shortestTime > tripTime)
                     {
                         shortestRoute = route;

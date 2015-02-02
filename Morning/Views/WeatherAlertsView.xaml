@@ -4,8 +4,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         mc:Ignorable="d" 
-        xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro" 
         xmlns:SampleViewModelData="clr-namespace:SampleViewModelData;assembly=SampleViewModelData"
+        xmlns:micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform"
         d:DataContext="{d:DesignInstance  SampleViewModelData:WeatherAlertViewModelSample, IsDesignTimeCreatable=True}"
         Title="WeatherAlerts" Height="300" Width="450" WindowStyle="None">
     <Grid Grid.Column="2" Grid.Row="2">
@@ -33,7 +33,7 @@
             <Label Content="{Binding TimeIssued}"/>
             <Label Content="{Binding Type}"/>
             <TextBlock Text="{Binding Message}" TextWrapping="Wrap" SnapsToDevicePixels="False" Width="Auto" UseLayoutRounding="True" Height="75" IsManipulationEnabled="False" Margin="5" />
-            <Button Name="CloseWeather" Content="Close" cal:Message.Attach="CloseWeatherAlertWindow" Margin="10" Padding="5" />
+            <Button Name="CloseWeather" Content="Close" micro:Message.Attach="CloseWeatherAlertWindow" Margin="10" Padding="5" />
         </StackPanel>
     </Grid>
 </Window>

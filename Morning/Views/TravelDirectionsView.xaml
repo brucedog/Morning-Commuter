@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:ns="clr-namespace:ViewModel.WpfHelpers;assembly=ViewModel"
-        xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro" Title="TravelDirections"
+        xmlns:micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform" Title="TravelDirections"
         Height="350" Width="535" WindowStyle="None" MouseDown="MouseDownEvent">
     <Grid Grid.Row="3">
         <Grid.RowDefinitions>
@@ -10,13 +10,13 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <Button Name="CloseBtn" Grid.Row="0" cal:Message.Attach="CloseCommand" Background="Transparent">
+        <Button Name="CloseBtn" Grid.Row="0" micro:Message.Attach="CloseCommand" Background="Transparent">
             <Image Name="CloseImage" Source="..\Images\closeIcon.png"/>
         </Button>
         <WebBrowser HorizontalAlignment="Left" Name="directions"  Grid.Row="1"
                     ns:WebBrowserUtility.Body="{Binding WebAddress}"
                     VerticalAlignment="Top" Width="Auto" Height="Auto" />
-        <Button Name="printBtn" Grid.Row="2" cal:Message.Attach="PrintCommand" Background="Transparent">
+        <Button Name="printBtn" Grid.Row="2" micro:Message.Attach="PrintCommand" Background="Transparent">
             <Image Name="PrintImage" Source="..\Images\print.png"/>
         </Button>
     </Grid>
