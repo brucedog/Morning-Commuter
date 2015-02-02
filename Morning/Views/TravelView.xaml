@@ -11,8 +11,7 @@
         d:DesignHeight="170" d:DesignWidth="505"
         Width="Auto"
         Height="Auto"
-        MinHeight="100"
-        >
+        MinHeight="100">
     <Grid Grid.Column="2" Height="Auto">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="330"/>
@@ -23,7 +22,7 @@
             <Label Content="{Binding TravelingBy}" />
             <Label Content="{Binding From}" />
             <Label Content="{Binding To}" />
-            <Button Content="Directions" micro:Message.Attach="ShowDirections" Padding="5" Margin="5"/>
+            <Button Content="Directions" micro:Message.Attach="ShowDirections" Padding="5" Margin="5" IsEnabled="{Binding CanShowDirections}"/>
             <Label Content="Warning" Foreground="Red" Visibility="{Binding Path=HasWarnings,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}"/>
             <ListBox ItemsSource="{Binding Warnings}" Visibility="{Binding Path=HasWarnings,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}" Padding="5" Margin="5"/>
         </StackPanel>

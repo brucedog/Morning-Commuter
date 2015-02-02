@@ -84,6 +84,16 @@ namespace ViewModel.ViewModels
             {
                 _commute = value;
                 NotifyOfPropertyChange(() => Commute);
+                NotifyOfPropertyChange(() => CanShowDirections);
+            }
+        }
+
+        public bool CanShowDirections
+        {
+            get
+            {                
+                ITravelDirectionsViewModel travelDirectionsViewModel = _kernel.Get<ITravelDirectionsViewModel>();
+                return !string.IsNullOrWhiteSpace(travelDirectionsViewModel.WebAddress);
             }
         }
 

@@ -10,13 +10,20 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <Button Name="CloseBtn" Grid.Row="0" micro:Message.Attach="CloseCommand" Background="Transparent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+        </Grid.ColumnDefinitions>
+        <Button Name="CloseBtn" Grid.Row="0" Grid.Column="1" micro:Message.Attach="CloseCommand" Background="Transparent">
             <Image Name="CloseImage" Source="..\Images\closeIcon.png"/>
         </Button>
-        <WebBrowser HorizontalAlignment="Left" Name="directions"  Grid.Row="1"
+        <WebBrowser HorizontalAlignment="Left" Name="directions" 
+                    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                     ns:WebBrowserUtility.Body="{Binding WebAddress}"
                     VerticalAlignment="Top" Width="Auto" Height="Auto" />
-        <Button Name="printBtn" Grid.Row="2" micro:Message.Attach="PrintCommand" Background="Transparent">
+        <Button Name="printBtn" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                BorderThickness="2"                
+                micro:Message.Attach="PrintCommand" Background="Transparent">
             <Image Name="PrintImage" Source="..\Images\print.png"/>
         </Button>
     </Grid>
