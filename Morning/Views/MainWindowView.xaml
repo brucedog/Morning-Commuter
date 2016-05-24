@@ -13,6 +13,9 @@
         WindowStyle="None" 
         SizeToContent="WidthAndHeight"
         MouseDown="MouseDownEvent">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisbilityConverter" />
+    </Window.Resources>
     <StackPanel Height="Auto">
         <Grid Grid.Row="1" Grid.Column="3">
             <Grid.ColumnDefinitions>
@@ -30,8 +33,8 @@
             <Button Name="CloseBtn" Grid.Column="4" Margin="2" Grid.ColumnSpan="2"  Grid.Row="0" micro:Message.Attach="CloseCommand" Background="Transparent">
                 <Image Name="CloseImage" Source="..\Images\closeIcon.png"/>
             </Button>
-        </Grid>        
-        <Views:WeatherView DataContext="{Binding Weather}" Visibility="{Binding Path=ShowWeather,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}" />
-        <Views:TravelView DataContext="{Binding Travel}" Visibility="{Binding Path=ShowTravel,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}" />
+        </Grid>
+        <Views:WeatherView DataContext="{Binding Weather}" Visibility="{Binding Path=ShowWeather,Converter={StaticResource BoolToVisbilityConverter}}" />
+        <Views:TravelView DataContext="{Binding Travel}" Visibility="{Binding Path=ShowTravel,Converter={StaticResource BoolToVisbilityConverter}}" />
     </StackPanel>
 </Window>

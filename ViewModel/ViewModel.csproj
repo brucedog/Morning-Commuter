@@ -69,7 +69,6 @@
     <Compile Include="ViewModels\WeatherAlertViewModel.cs" />
     <Compile Include="ViewModels\WeatherDetailsViewModel.cs" />
     <Compile Include="ViewModels\WeatherViewModel.cs" />
-    <Compile Include="WpfHelpers\BoolToVisibilityConverter .cs" />
     <Compile Include="WpfHelpers\WebBrowserUtility.cs" />
   </ItemGroup>
   <ItemGroup>

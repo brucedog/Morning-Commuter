@@ -12,6 +12,9 @@
         Width="Auto"
         Height="Auto"
         MinHeight="100">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisbilityConverter" />
+    </UserControl.Resources>
     <Grid Grid.Column="2" Height="Auto">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="330"/>
@@ -23,8 +26,8 @@
             <Label Content="{Binding From}" />
             <Label Content="{Binding To}" />
             <Button Content="Directions" micro:Message.Attach="ShowDirections" Padding="5" Margin="5" IsEnabled="{Binding CanShowDirections}"/>
-            <Label Content="Warning" Foreground="Red" Visibility="{Binding Path=HasWarnings,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}"/>
-            <ListBox ItemsSource="{Binding Warnings}" Visibility="{Binding Path=HasWarnings,Converter={local:BoolToVisibilityConverter FalseValue=Hidden}}" Padding="5" Margin="5"/>
+            <Label Content="Warning" Foreground="Red" Visibility="{Binding Path=HasWarnings,Converter={StaticResource BoolToVisbilityConverter}}"/>
+            <ListBox ItemsSource="{Binding Warnings}" Visibility="{Binding Path=HasWarnings,Converter={StaticResource BoolToVisbilityConverter}}" Padding="5" Margin="5"/>
         </StackPanel>
         <StackPanel Grid.Column="1" Height="Auto">
             <Label Content="{Binding ExceptedArrivalTime}" HorizontalContentAlignment="Right" FontSize="12.5" />
